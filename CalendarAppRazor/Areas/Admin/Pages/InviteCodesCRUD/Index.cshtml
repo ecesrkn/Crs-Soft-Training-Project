@@ -1,0 +1,64 @@
+﻿@page
+@model CalendarAppRazor.Areas.Admin.Pages.InviteCodesCRUD.IndexModel
+
+<p>Hello world, admin panel</p>
+
+<partial name="_SuccessNotification" />
+
+<div class="container p-3">
+    <div class="row pt-4">
+        <div class="col-6">
+            <h2 class="text-primary">Invite Codes List</h2>
+        </div>
+        <div class="col-6 text-end">
+            <a asp-page="../InviteCodeGeneration" class="btn btn-primary">Create an invite code</a>
+        </div>
+    </div>
+    <br /><br />
+    <table class="table table-bordered table-striped" style="width:100%">
+        <thead>
+            <tr>
+                <th>
+                    Invite Code
+                </th>
+                <th>
+                    is active?
+                </th>
+                <th>
+                    Owner Email
+                </th>
+                <th>
+                    num of pictures
+                </th>
+                <th>
+
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var obj in Model.ModelList)
+            {
+                <tr>
+                    <td width="30%">@obj.Code</td>
+                    <td width="30%">@obj.isActive</td>
+                    <td width="20%">@obj.ownerEmail</td>
+                    <td width="20%">@obj.numOfPictures</td>
+                    <td>
+                        <div class="btn btn-group">
+                            @if(obj.isActive){
+                                <a asp-page="Inactivate" asp-route-id="@obj.Code" class="btn btn-primary mx-2">Inactivate</a>
+                            }else{
+                                <a asp-page="Inactivate" asp-route-id="@obj.Code" class="btn btn-primary mx-2">Activate</a>
+                            }
+                            <a asp-page="Delete" asp-route-id="@obj.Code" class="btn btn-danger mx-2">Delete</a>
+                        </div>
+                    </td>
+
+
+                </tr>
+            }
+
+        </tbody>
+    </table>
+
+</div>

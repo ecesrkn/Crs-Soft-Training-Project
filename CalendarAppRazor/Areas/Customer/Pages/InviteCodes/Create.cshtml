@@ -1,0 +1,32 @@
+﻿@page
+@model CalendarAppRazor.Pages.InviteCodes.CreateModel
+
+<form method="post">
+    <div class="border p-3 mt-4">
+        <div class="row pb-2">
+            <h2 class="text-primary pl-3">Create invite code</h2>
+            <hr/>
+        </div>
+        <div asp-validation-summary="All"></div>
+        <div class="mb-3">
+            <label asp-for="InviteCode.Code"></label>
+            <input asp-for="InviteCode.Code" class="form-control"/>
+        </div>
+        <div class="mb-3">
+            <label asp-for="InviteCode.isActive"></label>
+            <input asp-for="InviteCode.isActive"  value="true"/>
+        </div>
+        <div class="mb-3">
+            <label asp-for="InviteCode.ownerId"></label>
+            <input asp-for="InviteCode.ownerId" class="form-control" />
+        </div>
+        <button type="submit" class="btn btn-primary" style="width:150px">Create</button>
+   <a asp-page="Index" class="btn btn-secondary" style="width:150px;">Back to list</a>
+    </div>
+</form>
+
+@section Scripts {
+    @{
+    <partial name="_ValidationScriptsPartial"/>
+    }
+}

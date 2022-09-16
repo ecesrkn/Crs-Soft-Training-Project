@@ -1,0 +1,53 @@
+﻿@page
+@model CalendarAppRazor.Pages.InviteCodes.IndexModel
+
+<partial name="_SuccessNotification" />
+
+<div class="container p-3">
+    <div class="row pt-4">
+        <div class="col-6">
+            <h2 class="text-primary">Invite Codes List</h2>
+        </div>
+        <div class="col-6 text-end">
+            <a asp-page="create" class="btn btn-primary">Create an invite code</a>
+        </div>
+    </div>
+    <br /><br />
+    <table class="table table-bordered table-striped" style="width:100%">
+        <thead>
+           <tr>
+               <th>
+                   Invite Code
+               </th>
+                <th>
+                    is active?
+                </th>
+                <th>
+                    Owner Id
+                </th>
+                <th>
+
+                </th>
+           </tr>
+        </thead>
+        <tbody>
+            @foreach(var obj in Model.InviteCodes){
+                <tr>
+                    <td width = "30%">@obj.Code</td>
+                    <td width = "30%">@obj.isActive</td>
+                    <td width = "20%">@obj.ownerId</td>
+                    <td>
+                        <div class="btn btn-group">
+                        <a asp-page="Edit" asp-route-id="@obj.Code" class="btn btn-primary mx-2">Edit</a>
+                        <a asp-page="Delete" asp-route-id="@obj.Code" class="btn btn-danger mx-2">Delete</a>
+                        </div>
+                    </td>
+
+
+                </tr>
+            }
+            
+        </tbody>
+    </table>
+
+</div>

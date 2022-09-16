@@ -1,0 +1,12 @@
+﻿@page
+@model CalendarAppRazor.Pages.ManageInviteCodes.DeleteModel
+@{
+}
+
+<form method="post">
+    <p>Your invite code @Model.InviteCode.Code and all pictures uploaded to your code will be deleted permanently. </p>
+    <input type="hidden" asp-for="@Model.InviteCode.Code" disabled class="form-control" />
+    <button type="submit" class="btn btn-danger" style="width:150px">Delete</button>
+    <a asp-page="Index" class="btn btn-secondary" style="width:150px;">Back to list</a>
+</form>
+
